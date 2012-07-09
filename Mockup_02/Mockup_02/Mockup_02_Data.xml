@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <top>
+    <Goal>Better image quality</Goal>
+    <Rationale>To reach a bigger target group, we want to create a better product experience. We want to reach this by having a better image quality. Analysis of the current product compared to current products on the market made clear the resolution needs to be higher to create a bigger marketshare.</Rationale>
+    <NFGoal>Higher resolution</NFGoal>
+    <NFRationale>The photoframes' resolution is very low in comparison to its competitors. Marketing studies have shown this. The term resolution contains the resolution of the display, possible resolution of the interface between the display and PCB, the highest possible resolution of the PCB and the resolution of the interface between the PCB and the USB and SD ports.</NFRationale>
+  </top>
+  <notes>
+    
+  </notes>
+  <experts>
+    
+  </experts>
+  <designdec>
+    
+  </designdec>
+</data>

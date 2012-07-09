@@ -8,14 +8,14 @@
 				<ColumnDefinition Width="2"/>
         		<ColumnDefinition Width="6.95*"/>
         </Grid.ColumnDefinitions>
-        <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="Rationale" Grid.Column="0" VerticalAlignment="Top">
-            <TextBlock Height="38" HorizontalAlignment="Left" Margin="2,0,0,0" Name="textBlock1" Text="{Binding}" VerticalAlignment="Top" Width="471" FontSize="22" FontWeight="Bold" DataContext="{Binding}" />
-            <TextBlock Height="70" HorizontalAlignment="Left" Margin="0,44,0,0" Name="textBlock2" Text="To reach a bigger target group, we want to create a better product experience. We want to reach this by having a better image quality. Analysis of the current product compared to current products on the market made clear the resolution needs to be higher to create a bigger marketshare." VerticalAlignment="Top" Width="{Binding ElementName=Rationale}" TextWrapping="Wrap" />
+        <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="Rationale" Grid.Column="0" VerticalAlignment="Top" DataContext="{Binding Source={StaticResource Mockup_02_DataDataSource}}">
+            <TextBlock Height="38" HorizontalAlignment="Left" Margin="2,0,2,76" x:Name="textBlock1" VerticalAlignment="Bottom" Width="471" FontSize="22" FontWeight="Bold" Text="{Binding XPath=/data/Goal}" />
+            <TextBlock Height="70" HorizontalAlignment="Left" Margin="2,44,2,0" Name="textBlock2" VerticalAlignment="Top" Width="{Binding ElementName=Rationale}" TextWrapping="Wrap" Text="{Binding XPath=/data/Rationale}" />
         </Grid>
         <Grid HorizontalAlignment="Stretch" Margin="0,114,0,2" Name="Components" Grid.Column="0"/>
-        <Grid Height="96" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="Assignment" Grid.Column="2" VerticalAlignment="Top">
-            <TextBlock Height="38" HorizontalAlignment="Left" Name="textBlock3" Text="Higher resolution" VerticalAlignment="Top" Width="1101" FontSize="24" FontWeight="Bold" />
-            <TextBlock Height="61" HorizontalAlignment="Left" Margin="-2,35,0,0" Name="textBlock4" Text="The photoframes' resolution is very low in comparison to its competitors. Marketing studies have shown this. The term resolution contains the resolution of the display, possible resolution of the interface between the display and PCB, the highest possible resolution of the PCB and the resolution of the interface between the PCB and the USB and SD ports" VerticalAlignment="Top" Width="1103" TextWrapping="Wrap" />
+        <Grid Height="96" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="Assignment" Grid.Column="2" VerticalAlignment="Top" DataContext="{Binding Source={StaticResource Mockup_02_DataDataSource}}">
+            <TextBlock Height="38" HorizontalAlignment="Left" Name="textBlock3" VerticalAlignment="Top" Width="1101" FontSize="24" FontWeight="Bold" Text="{Binding XPath=/data/NFGoal}" Margin="2,0" />
+            <TextBlock Height="61" HorizontalAlignment="Left" Margin="2,35,2,0" Name="textBlock4" VerticalAlignment="Top" Width="1103" TextWrapping="Wrap" Text="{Binding XPath=/data/NFRationale}" />
         </Grid>
         <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="0,96,0,0" Name="Overview" Grid.Column="2" VerticalAlignment="Stretch">
             <Canvas Height="359" HorizontalAlignment="Left" Margin="18,18,0,0" Name="plot01" VerticalAlignment="Top" Width="442">

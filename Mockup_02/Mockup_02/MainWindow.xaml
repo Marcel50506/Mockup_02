@@ -1,20 +1,28 @@
 ﻿<Window x:Class="Mockup_02.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="600" Width="1000">
+        Title="MainWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="1080" Width="1600" DataContext="{Binding}">
     <Grid x:Name="grid">
     	<Grid.ColumnDefinitions>
         		<ColumnDefinition Width="3*"/>
 				<ColumnDefinition Width="2"/>
         		<ColumnDefinition Width="6.95*"/>
         </Grid.ColumnDefinitions>
-        <Grid Height="114" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="Rationale" Grid.Column="0" VerticalAlignment="Top"/>
+        <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="Rationale" Grid.Column="0" VerticalAlignment="Top">
+            <TextBlock Height="38" HorizontalAlignment="Left" Margin="2,0,0,0" Name="textBlock1" Text="{Binding}" VerticalAlignment="Top" Width="471" FontSize="22" FontWeight="Bold" DataContext="{Binding}" />
+            <TextBlock Height="70" HorizontalAlignment="Left" Margin="0,44,0,0" Name="textBlock2" Text="To reach a bigger target group, we want to create a better product experience. We want to reach this by having a better image quality. Analysis of the current product compared to current products on the market made clear the resolution needs to be higher to create a bigger marketshare." VerticalAlignment="Top" Width="{Binding ElementName=Rationale}" TextWrapping="Wrap" />
+        </Grid>
         <Grid HorizontalAlignment="Stretch" Margin="0,114,0,2" Name="Components" Grid.Column="0"/>
-        <Grid Height="96" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="Assignment" Grid.Column="2" VerticalAlignment="Top"/>
-        <Grid Height="468" HorizontalAlignment="Stretch" Margin="0,96,0,0" Name="Overview" Grid.Column="2" VerticalAlignment="Top">
-        	<Image x:Name="image1" Margin="0,8,0,0" HorizontalAlignment="Left" Width="228.42" Height="158.5" VerticalAlignment="Top"/>
-        	<Button x:Name="Button1" Content="Button" Margin="122.42,170.5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="matLab1_Click"/>
-        	<TextBox x:Name="input01" HorizontalAlignment="Left" Height="21.96" Margin="31.92,170.5,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="71"/>
+        <Grid Height="96" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="Assignment" Grid.Column="2" VerticalAlignment="Top">
+            <TextBlock Height="38" HorizontalAlignment="Left" Name="textBlock3" Text="Higher resolution" VerticalAlignment="Top" Width="1101" FontSize="24" FontWeight="Bold" />
+            <TextBlock Height="61" HorizontalAlignment="Left" Margin="-2,35,0,0" Name="textBlock4" Text="The photoframes' resolution is very low in comparison to its competitors. Marketing studies have shown this. The term resolution contains the resolution of the display, possible resolution of the interface between the display and PCB, the highest possible resolution of the PCB and the resolution of the interface between the PCB and the USB and SD ports" VerticalAlignment="Top" Width="1103" TextWrapping="Wrap" />
+        </Grid>
+        <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="0,96,0,0" Name="Overview" Grid.Column="2" VerticalAlignment="Stretch">
+            <Canvas Height="359" HorizontalAlignment="Left" Margin="18,18,0,0" Name="plot01" VerticalAlignment="Top" Width="442">
+                <Image x:Name="image1" Width="423" Height="314" Source="/Mockup_02;component/_test.png" Canvas.Left="6" Canvas.Top="6" />
+                <Button x:Name="button1" Content="Button" Width="75" Click="matLab1_Click" Canvas.Left="281" Canvas.Top="331" />
+                <TextBox x:Name="input1" Height="21.96" TextWrapping="Wrap" Text="1" Width="71" Canvas.Left="121" Canvas.Top="331" />
+            </Canvas>
         </Grid>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch" Height="{Binding ActualHeight, ElementName=grid}"/>
     </Grid>

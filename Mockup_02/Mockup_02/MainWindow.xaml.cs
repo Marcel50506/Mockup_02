@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MatlabGraph;
 
 namespace Mockup_02
 {
@@ -19,21 +20,18 @@ namespace Mockup_02
     /// </summary>
     public partial class MainWindow : Window
     {
-		MatlabPort matlab;
-        String path;
+		MatlabPort matlab1;
 		
         public MainWindow()
         {
             InitializeComponent();
-			
-			path = System.IO.Directory.GetCurrentDirectory();
-            matlab = new MatlabPort(path,image1,"test");
+
+            matlab1 = new MatlabPort(input1, image1, "test1");
         }
 		
 		private void matLab1_Click(object sender, RoutedEventArgs e)
         {
-            String val01 = input01.Text;
-            matlab.matlabRun(val01);
+            matlab1.matlabRun();
         }
     }
 }

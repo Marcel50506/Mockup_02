@@ -29,7 +29,7 @@ namespace MatlabGraph
         String function;
 
         //Constructor needs the path, an Image container, and a string, which will be the name of the image in the /img folder
-        public MatlabPort(TextBox _input, Image _image, string _str)
+        public MatlabPort(TextBox _input, Image _image, String _str, String _function)
         {
             name = _str;
             input = _input;
@@ -49,12 +49,14 @@ namespace MatlabGraph
             image = _image;
 
             //set the current function
-            function = "h = @(x) (sin(x)^y + sin(x)^(-y));";
+            function = "h = @(x) "+ _function + ";";
         }
 
         //Runner will only neet a string for the designated value change
         public void matlabRun()
         {
+			//function = "h = @(x) "+ input.Text + ";";
+			
             //Get values of textbox
             String par = input.Text;
 
@@ -63,7 +65,7 @@ namespace MatlabGraph
 
             //Define the parameters for the name (filename) and parameter
             matlabExe.Execute("name  = '" + name + iter + "';");
-            matlabExe.Execute("y  = " + par + ";");
+           // matlabExe.Execute("y  = " + par + ";");
             matlabExe.Execute(function);
             matlabExe.Execute("figh = ezplot(h);");
             matlabExe.Execute("set(figh,'Color','red','linewidth',3);");

@@ -21,17 +21,27 @@ namespace Mockup_02
     public partial class MainWindow : Window
     {
 		MatlabPort matlab1;
+        NotesXML notes;
 		
         public MainWindow()
         {
             InitializeComponent();
 
-            matlab1 = new MatlabPort(input1, image1, "test1");
+            matlab1 = new MatlabPort(input1, image1, "test1","(sqrt(x))");
+
+            //add note
+            notes = new NotesXML();
+            //notes.addNote();
         }
 		
 		private void matLab1_Click(object sender, RoutedEventArgs e)
         {
             matlab1.matlabRun();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            notes.addNote();
         }
     }
 }

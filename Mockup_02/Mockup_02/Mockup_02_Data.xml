@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <top>
     <Goal>Better image quality</Goal>
@@ -7,12 +7,22 @@
     <NFRationale>The photoframes' resolution is very low in comparison to its competitors. Marketing studies have shown this. The term resolution contains the resolution of the display, possible resolution of the interface between the display and PCB, the highest possible resolution of the PCB and the resolution of the interface between the PCB and the USB and SD ports.</NFRationale>
   </top>
   <notes>
-    
+    <note naam="" mailadres="" tijd="" datum="">De notitie waar het dan allemaal om gaat</note>
+    <note name="Marco Xavier" mail="m.xavier@company.com" time="12:25" date="11-7-2012">Rene and Albert, we will discuss this in the next meeting!</note>
+    <note name="Albert Spat" mail="a.spat@company.com" time="11:46" date="9-7-2012">Rene, we could ask marketing if there is a need for more formats.</note>
+    <note name="René Dechamps" mail="r.dechamps@company.com" time="09:13" date="6-7-2012">I noticed the lack of file format support in the PCB, should we fix this?</note>
+    <note name="Clemens Richard" mail="c.richard@company.com" time="12:54" date="5-7-2012">There is a great lack of anti lorum ipsum here.</note>
+    <note name="Estelle vd Burg" mail="e.vdburg@company.com" time="15:58" date="3-7-2012">There was some lorum ipsum in the previous note, could that be corrected?</note>
+    <note name="Leon Hapelman" mail="l.hapelman@company.com" time="15:33" date="3-7-2012">Lorum ipsum ego dollur maar wattus.</note>
+    <note name="Marco Xavier" mail="m.xavier@company.com" time="12:25" date="11-7-2012">Rene and Albert, we will discuss this in the next meeting!</note>
+    <note name="Albert Spat" mail="a.spat@company.com" time="11:46" date="9-7-2012">Rene, we could ask marketing if there is a need for more formats.</note>
+    <note name="René Dechamps" mail="r.dechamps@company.com" time="09:13" date="6-7-2012">I noticed the lack of file format support in the PCB, should we fix this?</note>
+    <note name="Clemens Richard" mail="c.richard@company.com" time="12:54" date="5-7-2012">There is a great lack of anti lorum ipsum here.</note>
+    <note name="Estelle vd Burg" mail="e.vdburg@company.com" time="15:58" date="3-7-2012">There was some lorum ipsum in the previous note, could that be corrected?</note>
+    <note name="Leon Hapelman" mail="l.hapelman@company.com" time="15:33" date="3-7-2012">Lorum ipsum ego dollur maar wattus.</note>
   </notes>
   <experts>
-    
   </experts>
   <designdec>
-    
   </designdec>
 </data>

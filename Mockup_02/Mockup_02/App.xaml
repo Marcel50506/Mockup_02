@@ -5,7 +5,12 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
-    	<XmlDataProvider x:Key="Mockup_02_DataDataSource" Source="\Mockup_02_Data.xml" d:IsDataSource="True"/>
+    	<ResourceDictionary>
+    		<ResourceDictionary.MergedDictionaries>
+    			<ResourceDictionary Source="Simple Styles.xaml"/>
+    		</ResourceDictionary.MergedDictionaries>
+    		<XmlDataProvider x:Key="Mockup_02_DataDataSource" Source="C:\Users\s0139491\Documents\GitHub\Mockup_02\Mockup_02\Mockup_02\Mockup_02_Data.xml" d:IsDataSource="True"/>
+    	</ResourceDictionary>
          
     </Application.Resources>
 </Application>

@@ -65,7 +65,7 @@ namespace MatlabGraph
 
             //Define the parameters for the name (filename) and parameter
             matlabExe.Execute("name  = '" + name + iter + "';");
-           // matlabExe.Execute("y  = " + par + ";");
+            matlabExe.Execute("y  = " + par + ";");
             matlabExe.Execute(function);
             matlabExe.Execute("figh = ezplot(h);");
             matlabExe.Execute("set(figh,'Color','red','linewidth',3);");

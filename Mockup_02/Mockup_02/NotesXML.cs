@@ -23,18 +23,22 @@ namespace Mockup_02
             xmlDoc.Load(@"C:\Users\s0139491\Documents\GitHub\Mockup_02\Mockup_02\Mockup_02\Mockup_02_Data.xml");	
         }
 
-        public void addNote()
+        public void addNote(String _note)
         {
             XmlNode notes;
 
             notes = xmlDoc.SelectSingleNode("/data/notes");
 
             XmlNode note = xmlDoc.CreateElement("note");
-            XmlAttribute name = xmlDoc.CreateAttribute("naam");
-            XmlAttribute mail = xmlDoc.CreateAttribute("mailadres");
-            XmlAttribute time = xmlDoc.CreateAttribute("tijd");
-            XmlAttribute date = xmlDoc.CreateAttribute("datum");
-            note.InnerText = "De notitie waar het dan allemaal om gaat";
+            XmlAttribute name = xmlDoc.CreateAttribute("name");
+			name.Value = "Marcel Melching";
+            XmlAttribute mail = xmlDoc.CreateAttribute("mail");
+			mail.Value = "m.melching@company.com";
+            XmlAttribute time = xmlDoc.CreateAttribute("time");
+			time.Value = DateTime.Now.Hour + ":" + DateTime.Now.Minute;
+            XmlAttribute date = xmlDoc.CreateAttribute("date");
+			date.Value = DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year; 
+            note.InnerText = _note;
             note.Attributes.Append(name);
             note.Attributes.Append(mail);
             note.Attributes.Append(time);
@@ -42,6 +46,8 @@ namespace Mockup_02
             notes.PrependChild(note);
 
             xmlDoc.Save(@"C:\Users\s0139491\Documents\GitHub\Mockup_02\Mockup_02\Mockup_02\Mockup_02_Data.xml");
+			
+			
         }
 	}
 }

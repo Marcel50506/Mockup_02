@@ -27,7 +27,7 @@ namespace Mockup_02
         {
             InitializeComponent();
 
-            matlab1 = new MatlabPort(input1, image1, "test1","(sqrt(x))");
+            matlab1 = new MatlabPort(input1, image1, "test1","(sqrt(x)^y)");
 
             //add note
             notes = new NotesXML();
@@ -41,7 +41,7 @@ namespace Mockup_02
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            notes.addNote();
+            notes.addNote(noteBox.Text);
         }
     }
 }

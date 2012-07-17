@@ -8,7 +8,7 @@
 				<TextBlock Text="{Binding XPath=''}"/>
 			</StackPanel>
 		</DataTemplate>
-		<DataTemplate x:Key="StringTemplate1">
+		<DataTemplate x:Key="DiscussionTemplate">
 			<StackPanel x:Name="stackPanel" Margin="0,0,0,3" Width="185">
 				<TextBlock Text="{Binding XPath=''}" TextWrapping="Wrap" Width="185" HorizontalAlignment="Left"/>
 				<TextBlock Text="{Binding XPath=@name, StringFormat=By \{0\}}" Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -139,8 +139,8 @@
             				<Label Content="The ratio between picture quality on the y axis, and dpi on the x axis" Canvas.Left="8" Width="384.5"/>
             			</Canvas>
             			<Canvas HorizontalAlignment="Right" Width="225" Height="658" VerticalAlignment="Bottom">
-            				<ListBox x:Name="Notes" ItemTemplate="{DynamicResource StringTemplate1}" ItemsSource="{Binding XPath=/data/notes/note}" Width="210" Height="556" VerticalAlignment="Bottom" Canvas.Left="8" Canvas.Top="94" />
-            				<Button Content="Submit note" x:Name="button2" Click="button2_Click" Height="23" VerticalAlignment="Bottom" Width="75" Canvas.Left="71" Canvas.Top="67" />
+                            <ListBox x:Name="Notes" ItemTemplate="{DynamicResource DiscussionTemplate}" ItemsSource="{Binding Mode=TwoWay, UpdateSourceTrigger=LostFocus, XPath=/data/notes/note}" Width="210" Height="556" VerticalAlignment="Bottom" Canvas.Left="8" Canvas.Top="94" IsSynchronizedWithCurrentItem="True" />
+            				<Button Content="Submit note" x:Name="submitNote_btn" Click="submitNote_btnClick" Height="23" VerticalAlignment="Bottom" Width="75" Canvas.Left="71" Canvas.Top="67" />
             				<TextBox x:Name="noteBox" Canvas.Left="8" TextWrapping="Wrap" Text="Add your note to the discussion" Canvas.Top="8" Height="55" Width="209"/>
             			</Canvas>
             		</Grid>

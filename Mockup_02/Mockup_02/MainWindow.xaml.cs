@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
+using System.Xml.XPath;
 using MatlabGraph;
 
 namespace Mockup_02
@@ -20,28 +23,29 @@ namespace Mockup_02
     /// </summary>
     public partial class MainWindow : Window
     {
-		MatlabPort matlab1;
-        NotesXML notes;
+		MatlabPort matlabPort;
+
+        XmlHandler xmlHandler;
 		
         public MainWindow()
         {
             InitializeComponent();
 
-            matlab1 = new MatlabPort(input1, image1, "test1","(sqrt(x)^y)");
+            //add the MatlabPort to run matlab
+            matlabPort = new MatlabPort(input1, image1, "test1","(sqrt(x)^y)");
 
-            //add note
-            notes = new NotesXML();
-            //notes.addNote();
+            //add the XmlHandler
+            xmlHandler = new XmlHandler(this);
         }
 		
 		private void matLab1_Click(object sender, RoutedEventArgs e)
         {
-            matlab1.matlabRun();
+            matlabPort.matlabRun();
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void submitNote_btnClick(object sender, RoutedEventArgs e)
         {
-            notes.addNote(noteBox.Text);
+            xmlHandler.addNote(noteBox.Text);
         }
     }
 }

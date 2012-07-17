@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -13,21 +14,28 @@ using System.Windows.Shapes;
 
 namespace Mockup_02
 {
-	public class NotesXML
+	public class XmlHandler
 	{
         XmlDocument xmlDoc;
+        MainWindow mainWindow;
+        ArrayList notes;
 
-		public NotesXML()
+        public XmlHandler(MainWindow _mainWindow)
 		{
             xmlDoc = new XmlDocument();
-            xmlDoc.Load(@"C:\Users\s0139491\Documents\GitHub\Mockup_02\Mockup_02\Mockup_02\Mockup_02_Data.xml");	
+            xmlDoc.Load(@"C:\Users\s0139491\Documents\GitHub\Mockup_02\Mockup_02\Mockup_02\Mockup_02_Data.xml");
+            notes = new ArrayList();
+
+            createNotes();
+
+            mainWindow = _mainWindow;
         }
 
         public void addNote(String _note)
         {
-            XmlNode notes;
+            XmlNode xmlNotes;
 
-            notes = xmlDoc.SelectSingleNode("/data/notes");
+            xmlNotes = xmlDoc.SelectSingleNode("/data/notes");
 
             XmlNode note = xmlDoc.CreateElement("note");
             XmlAttribute name = xmlDoc.CreateAttribute("name");
@@ -43,11 +51,27 @@ namespace Mockup_02
             note.Attributes.Append(mail);
             note.Attributes.Append(time);
             note.Attributes.Append(date);
-            notes.PrependChild(note);
+            xmlNotes.PrependChild(note);
+
 
             xmlDoc.Save(@"C:\Users\s0139491\Documents\GitHub\Mockup_02\Mockup_02\Mockup_02\Mockup_02_Data.xml");
-			
-			
+        }
+
+        public void createNotes()
+        {
+            XmlNodeList nodeList = xmlDoc.SelectNodes("//note");
+            foreach (XmlNode n in nodeList)
+            {
+                String name = n.Attributes["name"].Value;
+                String mail = n.Attributes["mail"].Value;
+                String time = n.Attributes["time"].Value;
+                String date = n.Attributes["date"].Value;
+                String note = n.InnerText;
+
+                Note newNote = new Note(name, mail, time, date, note);
+
+                notes.Add(newNote);
+            }
         }
 	}
 }

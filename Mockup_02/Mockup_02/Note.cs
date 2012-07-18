@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace Mockup_02
 {
-    class Note
+    public class Note
     {
         private String name;
         private String mail;
@@ -20,6 +22,10 @@ namespace Mockup_02
             this.Time = _time;
             this.Date = _date;
             this.Note_ = _note;
+        }
+        public Note()
+        {
+
         }
 
         public string Name

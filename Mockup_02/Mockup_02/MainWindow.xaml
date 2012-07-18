@@ -3,14 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="900" Width="1600" MaxHeight="900" MaxWidth="1600" DataContext="{Binding}">
 	<Window.Resources>
-		<DataTemplate x:Key="StringTemplate">
-			<StackPanel>
-				<TextBlock Text="{Binding XPath=''}"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="DiscussionTemplate">
+
+        <!--<DataTemplate 
+            x:Key="DiscussionTemplate">
 			<StackPanel x:Name="stackPanel" Margin="0,0,0,3" Width="185">
-				<TextBlock Text="{Binding XPath=''}" TextWrapping="Wrap" Width="185" HorizontalAlignment="Left"/>
+				<TextBlock Text="{Binding XPath=''}" TextWrapping="Wrap" Width="185" HorizontalAlignment="Left" DataContext="{Binding}" />
 				<TextBlock Text="{Binding XPath=@name, StringFormat=By \{0\}}" Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 				<StackPanel Height="Auto" Width="200" Orientation="Horizontal">
 					<TextBlock Text="{Binding XPath=@time, StringFormat=On \{0\}}" Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
@@ -19,8 +16,13 @@
 				<TextBlock Text="{Binding XPath=@mail, StringFormat=Mail: \{0\}}" Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 				<Separator Height="1" Margin="-1,3,-1,0" Style="{DynamicResource SimpleSeparator}"/>
 			</StackPanel>
-		</DataTemplate>
-	</Window.Resources>
+		</DataTemplate>-->
+
+        <CollectionViewSource 
+              Source="{Binding Source={x:Static Application.Current}, Path=noteCollection}"
+              x:Key="notesListView" />
+
+    </Window.Resources>
     <Grid x:Name="grid">
     	<Grid.ColumnDefinitions>
         		<ColumnDefinition Width="3*"/>
@@ -139,11 +141,11 @@
             				<Label Content="The ratio between picture quality on the y axis, and dpi on the x axis" Canvas.Left="8" Width="384.5"/>
             			</Canvas>
             			<Canvas HorizontalAlignment="Right" Width="225" Height="658" VerticalAlignment="Bottom">
-                            <ListBox x:Name="Notes" ItemTemplate="{DynamicResource DiscussionTemplate}" ItemsSource="{Binding Mode=TwoWay, UpdateSourceTrigger=LostFocus, XPath=/data/notes/note}" Width="210" Height="556" VerticalAlignment="Bottom" Canvas.Left="8" Canvas.Top="94" IsSynchronizedWithCurrentItem="True" />
-            				<Button Content="Submit note" x:Name="submitNote_btn" Click="submitNote_btnClick" Height="23" VerticalAlignment="Bottom" Width="75" Canvas.Left="71" Canvas.Top="67" />
+                            <Button Content="Submit note" x:Name="submitNote_btn" Click="submitNote_btnClick" Height="23" VerticalAlignment="Bottom" Width="75" Canvas.Left="71" Canvas.Top="67" />
             				<TextBox x:Name="noteBox" Canvas.Left="8" TextWrapping="Wrap" Text="Add your note to the discussion" Canvas.Top="8" Height="55" Width="209"/>
-            			</Canvas>
-            		</Grid>
+                            <ListBox Height="564" Canvas.Left="8" Canvas.Top="94" Width="209" ItemsSource="{Binding Source={StaticResource notesListView}}" Name="NotesList"/>
+                        </Canvas>
+                    </Grid>
             	</TabItem>
             	<TabItem Header="Latency"/>
             </TabControl>

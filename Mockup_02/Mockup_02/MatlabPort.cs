@@ -23,16 +23,15 @@ namespace MatlabGraph
         private MLApp.MLApp matlabExe;
         int iter;
         Image image;
-        TextBox input;
+        String input;
         String path;
         String name;
         String function;
 
         //Constructor needs the path, an Image container, and a string, which will be the name of the image in the /img folder
-        public MatlabPort(TextBox _input, Image _image, String _str, String _function)
+        public MatlabPort(Image _image, String _str, String _function)
         {
             name = _str;
-            input = _input;
             image = _image;
 
             path = System.IO.Path.GetTempPath() + "matlabPort\\";
@@ -53,19 +52,18 @@ namespace MatlabGraph
         }
 
         //Runner will only neet a string for the designated value change
-        public void matlabRun()
+        public void matlabRun(String _input)
         {
 			//function = "h = @(x) "+ input.Text + ";";
-			
-            //Get values of textbox
-            String par = input.Text;
+
+            input = _input;
 
             //Set the matlab directory right
             matlabExe.Execute("cd " + path + ";");
 
             //Define the parameters for the name (filename) and parameter
             matlabExe.Execute("name  = '" + name + iter + "';");
-            matlabExe.Execute("y  = " + par + ";");
+            matlabExe.Execute("y  = " + input + ";");
             matlabExe.Execute(function);
             matlabExe.Execute("figh = ezplot(h);");
             matlabExe.Execute("set(figh,'Color','red','linewidth',3);");

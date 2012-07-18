@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -23,29 +24,26 @@ namespace Mockup_02
     /// </summary>
     public partial class MainWindow : Window
     {
-		MatlabPort matlabPort;
-
-        XmlHandler xmlHandler;
+        Controller controller; 
+        CollectionViewSource notesListView;
 		
         public MainWindow()
         {
             InitializeComponent();
+            controller = new Controller(this);
+            controller.Initialize();
 
-            //add the MatlabPort to run matlab
-            matlabPort = new MatlabPort(input1, image1, "test1","(sqrt(x)^y)");
-
-            //add the XmlHandler
-            xmlHandler = new XmlHandler(this);
+            notesListView = (CollectionViewSource)(this.Resources["notesListView"]);
         }
 		
 		private void matLab1_Click(object sender, RoutedEventArgs e)
         {
-            matlabPort.matlabRun();
+            controller.matlabRun();
         }
 
         private void submitNote_btnClick(object sender, RoutedEventArgs e)
         {
-            xmlHandler.addNote(noteBox.Text);
+            controller.addNote();
         }
     }
 }
